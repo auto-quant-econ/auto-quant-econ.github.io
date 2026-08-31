@@ -333,6 +333,44 @@ a:hover {
   color: var(--accent);
 }
 
+.paper-index {
+  border-top: 1px solid var(--rule-dark);
+}
+
+.paper-index article {
+  display: grid;
+  grid-template-columns: 90px minmax(0, 1fr);
+  gap: 1.5rem;
+  border-bottom: 1px solid var(--rule);
+  padding: 1.8rem 0 2rem;
+}
+
+.paper-index h2 {
+  margin: 0 0 0.45rem;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.paper-index h2 a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.paper-index h2 a:hover {
+  color: var(--accent);
+}
+
+.paper-index article p {
+  color: var(--muted);
+  margin: 0;
+}
+
+.paper-year {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+}
+
 .article-header {
   max-width: 900px;
   border-bottom: 1px solid var(--rule-dark);
@@ -562,6 +600,11 @@ a:hover {
 
   .module-arrow {
     display: none;
+  }
+
+  .paper-index article {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
   }
 
   .site-footer-inner,

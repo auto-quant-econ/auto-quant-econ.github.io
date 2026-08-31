@@ -4,6 +4,7 @@ import path from "node:path";
 import { afterEach, describe, expect, test } from "vitest";
 import {
   readModuleFamilies,
+  readReferences,
   readSpecifications,
   validateContentGraph,
 } from "./loader";
@@ -103,5 +104,27 @@ describe("content loaders", () => {
         papers: [],
       }),
     ).toThrow(/unknown specification: migration\.missing/i);
+  });
+
+  test("loads validated bibliographic references", async () => {
+    const root = await createRoot();
+    await writeMdx(
+      root,
+      "references/references.json",
+      JSON.stringify([
+        {
+          id: "dek-2008",
+          citation: "Dekle, Eaton, and Kortum (2008).",
+          title: "Global Rebalancing with Gravity",
+          authors: ["Robert Dekle", "Jonathan Eaton", "Samuel Kortum"],
+          year: 2008,
+          url: "https://www.nber.org/papers/w13846",
+        },
+      ]),
+    );
+
+    const references = await readReferences(root);
+
+    expect(references.map(({ id }) => id)).toEqual(["dek-2008"]);
   });
 });

@@ -5,6 +5,7 @@ import type { z } from "zod";
 import {
   moduleFamilySchema,
   paperSchema,
+  referenceSchema,
   specificationSchema,
   validateUniqueIds,
 } from "./schema";
@@ -12,6 +13,7 @@ import type {
   FamilyId,
   ModuleFamilyDocument,
   PaperDocument,
+  Reference,
   SpecificationDocument,
 } from "./types";
 
@@ -102,6 +104,21 @@ export async function readPapers(
   );
   validateUniqueIds(documents);
   return documents.sort((a, b) => b.year - a.year);
+}
+
+export async function readReferences(
+  root = defaultContentRoot,
+): Promise<Reference[]> {
+  const sourcePath = path.join(root, "references", "references.json");
+  const source = await readFile(sourcePath, "utf8");
+  const result = referenceSchema.array().safeParse(JSON.parse(source));
+  if (!result.success) {
+    throw new Error(
+      `Invalid references in ${sourcePath}: ${result.error.message}`,
+    );
+  }
+  validateUniqueIds(result.data);
+  return result.data;
 }
 
 export async function getModuleFamily(
