@@ -81,7 +81,9 @@ describe("content schemas", () => {
     };
 
     expect(() => paperSchema.parse(paper)).not.toThrow();
-    const { equilibrium: _equilibrium, ...incompleteMap } = paper.modelMap;
+    const incompleteMap = Object.fromEntries(
+      Object.entries(paper.modelMap).filter(([key]) => key !== "equilibrium"),
+    );
     expect(() =>
       paperSchema.parse({ ...paper, modelMap: incompleteMap }),
     ).toThrow();
