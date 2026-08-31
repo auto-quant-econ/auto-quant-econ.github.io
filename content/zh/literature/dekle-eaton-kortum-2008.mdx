@@ -1,0 +1,88 @@
+---
+id: dekle-eaton-kortum-2008
+title: "用引力模型研究全球再平衡：调整负担的测算"
+authors:
+  - Robert Dekle
+  - Jonathan Eaton
+  - Samuel Kortum
+year: 2008
+status: published
+citation: "Dekle, Robert, Jonathan Eaton, and Samuel Kortum. 2008. ‘Global Rebalancing with Gravity: Measuring the Burden of Adjustment.’ IMF Staff Papers 55 (3): 511–540."
+modelMap:
+  preferences:
+    kind: linked
+    specificationId: preferences.ces
+  production:
+    kind: linked
+    specificationId: production.constant-increasing-returns
+  commodity-trade:
+    kind: linked
+    specificationId: commodity-trade.eaton-kortum
+  idea-flows:
+    kind: not-applicable
+    note: 再平衡反事实中技术和双边贸易壁垒保持固定。
+  migration:
+    kind: not-applicable
+    note: 模型不允许劳动力跨国迁移。
+  endowments:
+    kind: linked
+    specificationId: endowments.fixed-labor
+  equilibrium:
+    kind: linked
+    specificationId: equilibrium.trade-deficits
+references:
+  - dek-2008
+  - eaton-kortum-2002
+---
+
+## 研究问题
+
+如果全球经常账户失衡被消除，各国相对工资、生产、实际工资与吸收需要如何变化？论文建立一个 42 国模型，并使用 2004 年 GDP、部门增加值、双边制造业贸易与外部失衡数据约束模型。
+
+## 模型环境
+
+每个国家包含制造业和非制造业。制造业由连续的差异化商品构成，生产率具有李嘉图异质性，商品在双边贸易壁垒下交易；非制造品不可贸易。生产具有规模报酬不变，市场完全竞争。
+
+各国劳动禀赋在国际间固定。作者比较劳动能否在国内部门间重新配置的情形，由此区分长期、中期与短期调整。
+
+## 偏好与支出
+
+最终吸收结合制造品和非制造品。国民支出等于国民收入加相应外部赤字。制造品的 CES 采购把到岸成本与双边支出份额联系起来。
+
+## 贸易结构
+
+Eaton–Kortum 结构在双边制造业支出上产生引力关系。模型不分别恢复技术水平和双边壁垒，而是围绕观察均衡用比例变化表达反事实系统，因此基准贸易份额成为更新采购结构的充分输入。
+
+## 参数与数据
+
+基准使用 42 个国家的 2004 年数据。GDP 和制造业增加值来自联合国国民账户；总体外部失衡来自 IMF；双边制造业贸易由联合国 Comtrade 构造；制造业投入份额来自投入产出资料。
+
+中心贸易弹性取 (\theta=8.28)，沿用 Eaton 和 Kortum 基于价格数据的估计。制造业中间投入中非制造品的份额取 (\gamma=0.43)，来自美国投入产出表。各国支出和增加值份额由国民账户与贸易数据恢复。
+
+## 基准拟合
+
+该方法是在观察均衡附近进行模型反演，而不是传统的样本外拟合优度检验。观察到的 GDP、部门增加值、双边制造业支出份额与赤字直接进入模型。在施加赤字反事实之前，模型被构造为精确复制这些基准会计量与贸易份额。
+
+## 反事实实验
+
+核心实验消除经常账户失衡，并求解恢复均衡所需的变化。论文比较三种调整情形：
+
+1. 劳动可在国内部门间流动，采购可沿广延边际调整；
+2. 劳动固定在部门内，但采购仍可调整；
+3. 劳动固定在部门内，供应商采购集合也受到限制。
+
+这些情形分别识别要素流动和灵活采购的定量价值。
+
+## 主要定量发现
+
+当国内要素可流动且广延边际活跃时，美国 GDP 相对日本下降不足 8%。当劳动不能跨部门流动时，相对降幅扩大到约 22%；当供应商采购也被限制时，降幅约为 44%。由于非贸易品普遍存在，实际 GDP 的变化远小于相对名义 GDP 的变化。
+
+## 局限
+
+模型是静态的，把每个国家聚合为两个部门，不包含国际迁移、内生创新或贸易壁垒变化。消除外部失衡被视为外生反事实，而不是由跨期金融机制内生推导。
+
+## 资源
+
+- [IMF 正式发表版本](https://www.imf.org/external/pubs/ft/staffp/2008/03/pdf/dekle.pdf)
+- [NBER 工作论文与引用信息](https://www.nber.org/papers/w13846)
+- [作者公开的复现程序与数据](https://campuspress.yale.edu/samuelkortum/global-rebalancing-with-gravity-measuring-the-burden-of-adjustment/)

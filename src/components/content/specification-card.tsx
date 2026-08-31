@@ -1,11 +1,13 @@
 import Link from "next/link";
 
 export function SpecificationCard({
+  id,
   title,
   summary,
   mechanism,
   href,
 }: {
+  id?: string;
   title: string;
   summary: string;
   mechanism: string;
@@ -20,10 +22,10 @@ export function SpecificationCard({
   );
 
   return href ? (
-    <Link className="specification-card" href={href}>
+    <Link className="specification-card" href={href} id={id}>
       {content}
     </Link>
   ) : (
-    <div className="specification-card">{content}</div>
+    <div className="specification-card" id={id}>{content}</div>
   );
 }

@@ -11,6 +11,8 @@ import {
 } from "./schema";
 import type {
   FamilyId,
+  Locale,
+  LocalizedContent,
   ModuleFamilyDocument,
   PaperDocument,
   Reference,
@@ -18,6 +20,13 @@ import type {
 } from "./types";
 
 export const defaultContentRoot = path.join(process.cwd(), "content");
+
+export function localizedContentRoot(
+  locale: Locale,
+  root = defaultContentRoot,
+) {
+  return path.join(root, locale);
+}
 
 async function parseDocument<T>(
   sourcePath: string,
@@ -183,4 +192,69 @@ export function validateContentGraph({
       }
     }
   }
+}
+
+function parityShape(content: LocalizedContent) {
+  return {
+    families: content.families.map((family) => ({
+      id: family.id,
+      moduleNumber: family.moduleNumber,
+      specifications: family.specifications.map(({ id }) => id),
+    })),
+    specifications: content.specifications.map((specification) => ({
+      id: specification.id,
+      family: specification.family,
+      order: specification.order,
+      references: specification.references,
+      relatedSpecifications: specification.relatedSpecifications,
+    })),
+    papers: content.papers.map((paper) => ({
+      id: paper.id,
+      year: paper.year,
+      modelMap: Object.fromEntries(
+        Object.entries(paper.modelMap).map(([family, entry]) => [
+          family,
+          entry.kind === "linked"
+            ? { kind: entry.kind, specificationId: entry.specificationId }
+            : { kind: entry.kind },
+        ]),
+      ),
+      references: paper.references,
+    })),
+  };
+}
+
+export function validateLocaleParity(
+  english: LocalizedContent,
+  chinese: LocalizedContent,
+) {
+  const enShape = parityShape(english);
+  const zhShape = parityShape(chinese);
+  if (JSON.stringify(enShape) === JSON.stringify(zhShape)) return;
+
+  const enIds = [
+    ...enShape.families.map(({ id }) => id),
+    ...enShape.specifications.map(({ id }) => id),
+    ...enShape.papers.map(({ id }) => id),
+  ];
+  const zhIds = new Set([
+    ...zhShape.families.map(({ id }) => id),
+    ...zhShape.specifications.map(({ id }) => id),
+    ...zhShape.papers.map(({ id }) => id),
+  ]);
+  const missing = enIds.find((id) => !zhIds.has(id));
+  throw new Error(
+    `Locale parity mismatch${missing ? `: ${missing}` : ": structural metadata differs"}`,
+  );
+}
+
+export async function readLocalizedContent(
+  locale: Locale,
+  root = defaultContentRoot,
+): Promise<LocalizedContent> {
+  const localeRoot = localizedContentRoot(locale, root);
+  const families = await readModuleFamilies(localeRoot);
+  const specifications = await readAllSpecifications(localeRoot);
+  const papers = await readPapers(localeRoot);
+  return { families, specifications, papers };
 }
