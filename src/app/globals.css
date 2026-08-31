@@ -258,6 +258,81 @@ a:hover {
   padding: clamp(4rem, 9vw, 7rem) 0 7rem;
 }
 
+.index-page {
+  width: min(1120px, calc(100% - 3rem));
+  margin: 0 auto;
+  padding: clamp(4rem, 9vw, 7rem) 0 7rem;
+}
+
+.index-header {
+  max-width: 780px;
+  margin-bottom: 4rem;
+}
+
+.index-header h1 {
+  margin: 0.8rem 0 1.3rem;
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-weight: 450;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.index-header > p:last-child {
+  max-width: 58ch;
+  color: var(--muted);
+  font-size: 1.18rem;
+}
+
+.module-index {
+  border-top: 1px solid var(--rule-dark);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.module-index li {
+  border-bottom: 1px solid var(--rule);
+}
+
+.module-index a {
+  display: grid;
+  grid-template-columns: 70px minmax(0, 1fr) auto;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 1.7rem 0;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.module-number,
+.module-arrow {
+  color: var(--accent);
+  font-family: var(--sans);
+  font-size: 0.78rem;
+}
+
+.module-index-copy {
+  display: grid;
+  grid-template-columns: minmax(190px, 0.7fr) minmax(0, 1.3fr);
+  gap: 2rem;
+  align-items: baseline;
+}
+
+.module-index-copy strong {
+  font-size: 1.35rem;
+  font-weight: 520;
+}
+
+.module-index-copy > span {
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.module-index a:hover strong,
+.module-index a:hover .module-arrow {
+  color: var(--accent);
+}
+
 .article-header {
   max-width: 900px;
   border-bottom: 1px solid var(--rule-dark);
@@ -477,6 +552,16 @@ a:hover {
   .model-map-row {
     grid-template-columns: 1fr;
     gap: 0.4rem;
+  }
+
+  .module-index a,
+  .module-index-copy {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+
+  .module-arrow {
+    display: none;
   }
 
   .site-footer-inner,

@@ -1,0 +1,75 @@
+---
+id: migration.static-destination-choice
+family: migration
+title: Static Destination Choice
+summary: "Workers choose among locations by comparing real income, amenities, and idiosyncratic destination preferences."
+status: published
+order: 1
+references:
+  - allen-arkolakis-2014
+  - redding-rossi-hansberg-2017
+relatedSpecifications: []
+---
+
+## Definition
+
+Static destination choice treats the spatial allocation of workers as a one-period or long-run selection problem. Each worker evaluates the deterministic payoff available in every location together with an idiosyncratic preference for that destination.
+
+## Economic Motivation
+
+Wage differences alone cannot explain population patterns. Workers also face local prices, housing costs, amenities, and heterogeneous tastes. The static discrete-choice formulation converts those objects into smooth destination shares rather than predicting that every worker selects the same place.
+
+## Environment
+
+Let locations be indexed by (n \in \mathcal{N}). A worker consumes a traded composite and housing. The deterministic component of location utility depends on the local wage (w_n), consumption price index (P_n), housing stock (H_n), population (L_n), and amenity (B_n).
+
+## Assumptions
+
+1. Workers are homogeneous in observed economic characteristics.
+2. Location choice is static; workers do not value future option value.
+3. Idiosyncratic destination preferences follow a common extreme-value or Fréchet structure.
+4. Total population is fixed across locations.
+5. Housing congestion lowers real utility as local population rises relative to housing supply.
+
+## Decision Problem
+
+A worker selects the destination that offers the highest location-specific utility. The common deterministic payoff is shared across workers, while the idiosyncratic term generates dispersion in choices.
+
+## Core Equations
+
+With Cobb–Douglas expenditure shares, deterministic indirect utility can be written as
+
+$$
+V_n = \frac{w_n^{\alpha} H_n^{1-\alpha}}
+{\alpha^{\alpha}(1-\alpha)^{1-\alpha}P_n^{\alpha}L_n^{1-\alpha}}.
+$$
+
+Under a Fréchet location-preference distribution with migration elasticity (\kappa), the population share takes the form
+
+$$
+\lambda_n =
+\frac{(B_n V_n)^{\kappa}}
+{\sum_{k \in \mathcal{N}}(B_k V_k)^{\kappa}},
+\qquad
+L_n = \lambda_n \bar L.
+$$
+
+## Economic Intuition
+
+Higher wages, better amenities, or more housing raise a location's population share. A higher consumption price index or tighter housing congestion lowers it. The parameter (\kappa) controls how strongly population responds to differences in deterministic utility: a larger value produces stronger spatial sorting.
+
+## Empirical Interpretation
+
+Regional earnings proxy for (w_n); price indices combine observed local prices with model-implied traded-goods prices; housing quantities or rents discipline congestion; and population shares identify the combined role of amenities and real income. Amenities are often recovered as the residual required to rationalize the observed spatial allocation.
+
+## Typical Applications
+
+The specification is suited to long-run comparisons of transport improvements, trade-cost changes, place-based policies, housing supply reforms, and regional productivity shocks when transition dynamics are not the object of interest.
+
+## Limitations
+
+The model does not describe adjustment speed, option value, repeated migration, or age-specific life-cycle choices. Without bilateral moving costs, it also explains destination shares rather than origin–destination flows.
+
+## Literature Lineage
+
+Allen and Arkolakis (2014) places labor mobility inside a quantitative spatial equilibrium with trade. Redding and Rossi-Hansberg (2017) surveys this class of quantitative spatial models and its counterfactual applications. Dynamic and bilateral-cost formulations extend the static benchmark when transition paths or origin-specific flows matter.
