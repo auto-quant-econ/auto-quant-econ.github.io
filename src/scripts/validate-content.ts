@@ -1,18 +1,20 @@
 import {
-  readAllSpecifications,
-  readPapers,
+  readLocalizedContent,
   readReferences,
   validateContentGraph,
+  validateLocaleParity,
 } from "../lib/content/loader";
 
-const [specifications, papers, references] = await Promise.all([
-  readAllSpecifications(),
-  readPapers(),
+const [english, chinese, references] = await Promise.all([
+  readLocalizedContent("en"),
+  readLocalizedContent("zh"),
   readReferences(),
 ]);
 
-validateContentGraph({ specifications, papers, references });
+validateContentGraph({ ...english, references });
+validateContentGraph({ ...chinese, references });
+validateLocaleParity(english, chinese);
 
 console.log(
-  `Validated ${specifications.length} specifications, ${papers.length} papers, and ${references.length} references.`,
+  `Validated bilingual parity for ${english.families.length} families, ${english.specifications.length} specifications, ${english.papers.length} papers, and ${references.length} references.`,
 );

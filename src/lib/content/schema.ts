@@ -10,6 +10,9 @@ export const familyIds = [
   "equilibrium",
 ] as const;
 
+export const locales = ["en", "zh"] as const;
+export const localeSchema = z.enum(locales);
+
 export const familyIdSchema = z.enum(familyIds);
 export const contentStatusSchema = z.enum(["draft", "reviewed", "published"]);
 

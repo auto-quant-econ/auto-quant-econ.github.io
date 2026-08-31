@@ -6,7 +6,7 @@ import SpecificationPage from "./[family]/[specification]/page";
 
 describe("module knowledge routes", () => {
   test("lists the seven numbered module families", async () => {
-    render(await ModulesPage());
+    render(await ModulesPage({ params: Promise.resolve({ locale: "en" }) }));
 
     expect(screen.getAllByRole("link", { name: /module \d/i })).toHaveLength(
       7,
@@ -18,7 +18,7 @@ describe("module knowledge routes", () => {
   test("presents the migration baseline and extension menu", async () => {
     render(
       await ModuleFamilyPage({
-        params: Promise.resolve({ family: "migration" }),
+        params: Promise.resolve({ locale: "en", family: "migration" }),
       }),
     );
 
@@ -36,7 +36,7 @@ describe("module knowledge routes", () => {
     render(
       await SpecificationPage({
         params: Promise.resolve({
-          family: "migration",
+          locale: "en", family: "migration",
           specification: "static-destination-choice",
         }),
       }),
