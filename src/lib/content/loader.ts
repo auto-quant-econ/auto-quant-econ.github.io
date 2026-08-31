@@ -145,15 +145,26 @@ export async function getPaper(paperId: string, root = defaultContentRoot) {
 export function validateContentGraph({
   specifications,
   papers,
+  references,
 }: {
   specifications: SpecificationDocument[];
   papers: PaperDocument[];
+  references: Reference[];
 }) {
+  validateUniqueIds(specifications);
+  validateUniqueIds(papers);
+  validateUniqueIds(references);
   const specificationIds = new Set(specifications.map(({ id }) => id));
+  const referenceIds = new Set(references.map(({ id }) => id));
   for (const specification of specifications) {
     for (const relatedId of specification.relatedSpecifications) {
       if (!specificationIds.has(relatedId)) {
         throw new Error(`Unknown specification: ${relatedId}`);
+      }
+    }
+    for (const referenceId of specification.references) {
+      if (!referenceIds.has(referenceId)) {
+        throw new Error(`Unknown reference: ${referenceId}`);
       }
     }
   }
@@ -164,6 +175,11 @@ export function validateContentGraph({
         !specificationIds.has(entry.specificationId)
       ) {
         throw new Error(`Unknown specification: ${entry.specificationId}`);
+      }
+    }
+    for (const referenceId of paper.references) {
+      if (!referenceIds.has(referenceId)) {
+        throw new Error(`Unknown reference: ${referenceId}`);
       }
     }
   }

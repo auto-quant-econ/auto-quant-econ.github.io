@@ -16,6 +16,7 @@ Describe the contribution and its purpose.
 ## Verification
 
 - [ ] `npm test`
+- [ ] `npm run validate:content`
 - [ ] `npm run typecheck`
 - [ ] `npm run lint`
 - [ ] `npm run build`

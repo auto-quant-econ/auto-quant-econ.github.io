@@ -102,8 +102,32 @@ describe("content loaders", () => {
           },
         ],
         papers: [],
+        references: [],
       }),
     ).toThrow(/unknown specification: migration\.missing/i);
+  });
+
+  test("rejects unknown bibliographic reference identifiers", () => {
+    expect(() =>
+      validateContentGraph({
+        specifications: [
+          {
+            id: "migration.static-choice",
+            family: "migration",
+            title: "Static Choice",
+            summary: "One-period location choice.",
+            status: "published",
+            order: 1,
+            references: ["missing-reference"],
+            relatedSpecifications: [],
+            sourcePath: "static-choice.mdx",
+            body: "Text.",
+          },
+        ],
+        papers: [],
+        references: [],
+      }),
+    ).toThrow(/unknown reference: missing-reference/i);
   });
 
   test("loads validated bibliographic references", async () => {

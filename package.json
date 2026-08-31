@@ -11,6 +11,7 @@
     "build": "next build",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
+    "validate:content": "tsx src/scripts/validate-content.ts",
     "test": "vitest run",
     "test:e2e": "playwright test"
   },
@@ -37,6 +38,7 @@
     "eslint-config-next": "^16.3.3",
     "jsdom": "^29.1.1",
     "serve": "^14.2.6",
+    "tsx": "^4.23.13",
     "typescript": "^6.0.3",
     "vitest": "^4.1.11"
   }

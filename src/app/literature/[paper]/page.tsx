@@ -37,14 +37,19 @@ export default async function PaperPage(_props: {
   if (!document) notFound();
 
   const specifications = await readAllSpecifications();
-  validateContentGraph({ specifications, papers: [document] });
+  const allReferences = await readReferences();
+  validateContentGraph({
+    specifications,
+    papers: [document],
+    references: allReferences,
+  });
   const titles = Object.fromEntries(
     specifications.map((specification) => [
       specification.id,
       specification.title,
     ]),
   );
-  const references = (await readReferences()).filter((reference) =>
+  const references = allReferences.filter((reference) =>
     document.references.includes(reference.id),
   );
   const renderedBody = await MdxContent({ source: document.body });
