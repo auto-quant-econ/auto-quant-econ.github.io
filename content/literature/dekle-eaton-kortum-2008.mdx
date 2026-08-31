@@ -1,0 +1,88 @@
+---
+id: dekle-eaton-kortum-2008
+title: "Global Rebalancing with Gravity: Measuring the Burden of Adjustment"
+authors:
+  - Robert Dekle
+  - Jonathan Eaton
+  - Samuel Kortum
+year: 2008
+status: published
+citation: "Dekle, Robert, Jonathan Eaton, and Samuel Kortum. 2008. ‘Global Rebalancing with Gravity: Measuring the Burden of Adjustment.’ IMF Staff Papers 55 (3): 511–540."
+modelMap:
+  preferences:
+    kind: linked
+    specificationId: preferences.ces
+  production:
+    kind: linked
+    specificationId: production.constant-increasing-returns
+  commodity-trade:
+    kind: linked
+    specificationId: commodity-trade.eaton-kortum
+  idea-flows:
+    kind: not-applicable
+    note: Technology and bilateral trade barriers are fixed in the rebalancing counterfactual.
+  migration:
+    kind: not-applicable
+    note: International labor mobility is not modeled.
+  endowments:
+    kind: linked
+    specificationId: endowments.fixed-labor
+  equilibrium:
+    kind: linked
+    specificationId: equilibrium.trade-deficits
+references:
+  - dek-2008
+  - eaton-kortum-2002
+---
+
+## Research Question
+
+What changes in relative wages, production, real wages, and absorption would be required if the world's current-account imbalances were eliminated? The paper studies this question in a 42-country model disciplined by 2004 GDP, sectoral value added, bilateral manufacturing trade, and external-imbalance data.
+
+## Model Environment
+
+Each country has manufacturing and nonmanufacturing production. Manufacturing contains a continuum of differentiated goods produced under Ricardian productivity heterogeneity and traded subject to bilateral barriers. Nonmanufactures are not traded. Production has constant returns and markets are perfectly competitive.
+
+Country labor endowments are fixed internationally. The authors compare cases in which labor can reallocate between domestic sectors with cases in which it is sector-specific. This distinction creates long-, medium-, and short-run adjustment scenarios.
+
+## Preferences and Expenditure
+
+Final absorption combines manufactures and nonmanufactures. National expenditure equals income plus the relevant external deficit. CES sourcing across manufactured goods connects delivered costs to bilateral expenditure shares.
+
+## Trade Structure
+
+The Eaton–Kortum structure implies gravity in bilateral manufacturing expenditure. Rather than recovering technology levels and bilateral barriers separately, the counterfactual system is expressed in proportional changes around the observed equilibrium. Baseline trade shares therefore serve as sufficient inputs for updating sourcing patterns.
+
+## Parameters and Data
+
+The baseline uses 2004 data for 42 countries. GDP and manufacturing value added come from United Nations national accounts; overall external imbalances come from IMF data; bilateral manufacturing trade is constructed from UN Comtrade; and manufacturing input shares use input–output information.
+
+The central trade-elasticity value is (\theta=8.28), following Eaton and Kortum's price-based estimate. The share of nonmanufactures in manufacturing intermediates is set to (\gamma=0.43) from the United States input–output table. Country expenditure and value-added shares are recovered from national accounts and trade data.
+
+## Baseline Fit
+
+The procedure is an inversion around the observed equilibrium rather than a conventional out-of-sample goodness-of-fit exercise. Observed GDP, sectoral value added, bilateral manufacturing expenditure shares, and deficits enter directly. The model is constructed to reproduce these baseline accounting and trade-share objects before the deficit counterfactual is imposed.
+
+## Counterfactuals
+
+The principal experiment removes current-account imbalances and solves for the changes required to restore equilibrium. Three adjustment cases are compared:
+
+1. labor can move across domestic sectors and sourcing adjusts at the extensive margin;
+2. labor is fixed by sector while sourcing still adjusts;
+3. labor is fixed by sector and supplier sourcing is also restricted.
+
+These cases isolate the quantitative value of factor mobility and flexible sourcing.
+
+## Main Quantitative Findings
+
+With domestic factor mobility and an active extensive margin, the United States' GDP falls by less than 8 percent relative to Japan's. The relative decline grows to roughly 22 percent when labor cannot move between sectors and to roughly 44 percent when supplier sourcing is also restricted. Because nontraded goods are pervasive, changes in real GDP are much smaller than changes in relative nominal GDP.
+
+## Limitations
+
+The model is static, aggregates each country to two sectors, and does not model international migration, endogenous innovation, or changes in trade barriers. The counterfactual treats the elimination of external imbalances as an exogenous change rather than deriving it from an intertemporal financial mechanism.
+
+## Resources
+
+- [Published article at the IMF](https://www.imf.org/external/pubs/ft/staffp/2008/03/pdf/dekle.pdf)
+- [NBER working paper and citation record](https://www.nber.org/papers/w13846)
+- [Authors' replication programs and data](https://campuspress.yale.edu/samuelkortum/global-rebalancing-with-gravity-measuring-the-burden-of-adjustment/)

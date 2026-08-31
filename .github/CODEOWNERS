@@ -1,0 +1,8 @@
+/content/                         @auto-quant-econ/editors
+/src/app/                         @auto-quant-econ/developers
+/src/components/                  @auto-quant-econ/developers
+/src/lib/                         @auto-quant-econ/developers
+/tests/                           @auto-quant-econ/developers
+/.github/                         @ALLBLUEUK
+/package.json                     @auto-quant-econ/developers
+/package-lock.json                @auto-quant-econ/developers

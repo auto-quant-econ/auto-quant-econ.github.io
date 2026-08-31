@@ -1,0 +1,33 @@
+[
+  {
+    "id": "dek-2008",
+    "citation": "Dekle, Robert, Jonathan Eaton, and Samuel Kortum. 2008. ‘Global Rebalancing with Gravity: Measuring the Burden of Adjustment.’ IMF Staff Papers 55 (3): 511–540.",
+    "title": "Global Rebalancing with Gravity: Measuring the Burden of Adjustment",
+    "authors": ["Robert Dekle", "Jonathan Eaton", "Samuel Kortum"],
+    "year": 2008,
+    "url": "https://www.nber.org/papers/w13846",
+    "codeUrl": "https://campuspress.yale.edu/samuelkortum/global-rebalancing-with-gravity-measuring-the-burden-of-adjustment/"
+  },
+  {
+    "id": "eaton-kortum-2002",
+    "citation": "Eaton, Jonathan, and Samuel Kortum. 2002. ‘Technology, Geography, and Trade.’ Econometrica 70 (5): 1741–1779.",
+    "title": "Technology, Geography, and Trade",
+    "authors": ["Jonathan Eaton", "Samuel Kortum"],
+    "year": 2002,
+    "url": "https://www.nber.org/papers/w6253"
+  },
+  {
+    "id": "allen-arkolakis-2014",
+    "citation": "Allen, Treb, and Costas Arkolakis. 2014. ‘Trade and the Topography of the Spatial Economy.’ Quarterly Journal of Economics 129 (3): 1085–1140.",
+    "title": "Trade and the Topography of the Spatial Economy",
+    "authors": ["Treb Allen", "Costas Arkolakis"],
+    "year": 2014
+  },
+  {
+    "id": "redding-rossi-hansberg-2017",
+    "citation": "Redding, Stephen J., and Esteban Rossi-Hansberg. 2017. ‘Quantitative Spatial Economics.’ Annual Review of Economics 9: 21–58.",
+    "title": "Quantitative Spatial Economics",
+    "authors": ["Stephen J. Redding", "Esteban Rossi-Hansberg"],
+    "year": 2017
+  }
+]

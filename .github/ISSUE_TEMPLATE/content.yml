@@ -1,0 +1,46 @@
+name: Content contribution
+description: Propose a module, specification, paper page, correction, or citation.
+title: "content: "
+labels:
+  - content
+body:
+  - type: dropdown
+    id: contribution_type
+    attributes:
+      label: Contribution type
+      options:
+        - Module family
+        - Specification
+        - Literature page
+        - Citation or notation correction
+        - Other content change
+    validations:
+      required: true
+  - type: input
+    id: target
+    attributes:
+      label: Target page or stable identifier
+      placeholder: migration.dynamic-migration
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed contribution
+      description: State exactly what will change and why.
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Primary literature
+      description: List papers, chapters, equations, or public replication code supporting the change.
+    validations:
+      required: true
+  - type: textarea
+    id: completion
+    attributes:
+      label: Completion criteria
+      description: Describe the content, links, equations, and checks required for review.
+    validations:
+      required: true

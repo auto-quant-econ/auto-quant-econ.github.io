@@ -1,0 +1,27 @@
+name: Website change
+description: Propose a navigation, presentation, accessibility, or build change.
+title: "site: "
+labels:
+  - website
+body:
+  - type: textarea
+    id: current
+    attributes:
+      label: Current behavior
+      description: Describe the page, route, or workflow as it currently behaves.
+    validations:
+      required: true
+  - type: textarea
+    id: desired
+    attributes:
+      label: Desired behavior
+      description: Describe the observable result after the change.
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: Verification
+      description: State how the change should be tested on desktop and mobile.
+    validations:
+      required: true
