@@ -77,7 +77,7 @@ export default async function HomePage({
             <li key={number}>
               <span className="framework-number">{number}</span>
               <div><h3>{title}</h3><p>{description}</p></div>
-              {index < text.stages.length - 1 ? <span aria-hidden="true" className="framework-arrow">↓</span> : null}
+              {index < text.stages.length - 1 ? <span aria-hidden="true" className="framework-arrow">→</span> : null}
             </li>
           ))}
         </ol>

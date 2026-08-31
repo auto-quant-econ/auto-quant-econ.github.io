@@ -10,7 +10,8 @@ test("navigates the module and literature knowledge paths", async ({ page }) => 
     page.getByRole("heading", { name: "Static Destination Choice" }),
   ).toBeVisible();
 
-  await page.getByRole("link", { name: "Literature" }).click();
+  await page.getByRole("button", { name: "Literature" }).click();
+  await page.getByRole("link", { name: "Papers" }).click();
   await page
     .getByRole("link", { name: /Global Rebalancing with Gravity/i })
     .click();
