@@ -15,6 +15,8 @@ const families = [
 test("uses a uniform collapsible primary-menu hierarchy", () => {
   render(<SiteSidebar collapsed={false} families={families} locale="en" mobileOpen onCollapse={vi.fn()} onMobileClose={vi.fn()} pathname="/en/modules/migration/" />);
 
+  expect(screen.getByText("AQE", { exact: true })).toBeVisible();
+
   for (const label of ["Modules", "Literature", "Build Model", "Simulation"]) {
     expect(screen.getByRole("button", { name: label })).toBeInTheDocument();
   }
