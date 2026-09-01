@@ -31,7 +31,7 @@ export function SiteSidebar({ locale, pathname, families, collapsed, mobileOpen,
   return (
     <aside className={`site-sidebar ${collapsed ? "is-collapsed" : ""} ${mobileOpen ? "is-mobile-open" : ""}`}>
       <div className="sidebar-head">
-        <Link className="sidebar-brand" href={`/${locale}/`} onClick={onMobileClose}><span className="sidebar-brand-text">Auto Quant Econ</span></Link>
+        <Link className="sidebar-brand" href={`/${locale}/`} onClick={onMobileClose}><span className="sidebar-mark">AQE</span><span className="sidebar-brand-text">Auto Quant Econ</span></Link>
         <button className="sidebar-collapse" type="button" onClick={onCollapse} aria-label={collapsed ? labels.expand : labels.collapse}>{collapsed ? "›" : "‹"}</button>
       </div>
       <nav className="sidebar-nav" aria-label="Primary navigation">
